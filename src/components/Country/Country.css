@@ -1,0 +1,17 @@
+.card-box{
+    border: 1px solid lightgray;
+    padding: 15px;
+    margin: 20px;
+    display: grid;
+    width: 500px;
+    margin-left: 30%;
+    border-radius: 4px;
+}
+
+.addBtn{
+    background-color: lightgreen;
+    width: 120px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
