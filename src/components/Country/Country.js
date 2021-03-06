@@ -1,18 +1,17 @@
 import React from 'react';
-import './Country.css'
+import './Country.css';
+import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Country = (props) => {
-    const {name, population, region, area, capital, flag} = props.country;
-    const addCountry = props.addCountry;
+    const {name, capital, flag} = props.country;
     return (
         <div className="card-box">
-            <img style={{height: '80px'}} src={flag} alt=""/>
-            <h6>Country Name: {name}</h6>
-            <h6>Population: {population}</h6>
-            <h6>Region: {region}</h6>
-            <h6>Area: {area}</h6>
+           <img className="flag mb-3" src={flag} alt=""/>
+            <h6>Name: {name}</h6>
             <h6>Capital: {capital}</h6>
-            <button onClick={() => addCountry(props.country)} className="addBtn">Add Country</button>
+
+           <Link to={`/country/${name}`}><Button className="btn-sm mt-2" variant="success">Details</Button></Link> 
         </div>
     );
 };

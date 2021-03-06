@@ -1,0 +1,8 @@
+.detail-card{
+    width: 500px;
+    height: auto;
+    border: 1px solid lightblue;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 10px;
+}

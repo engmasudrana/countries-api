@@ -1,28 +1,40 @@
-import React, { useEffect, useState } from 'react';
-import Card from './components/Card/Card';
-import Country from './components/Country/Country';
-function App() {
-  const [countries, setCountries] = useState([]);
-  const [card, setCard] = useState([]);
-  useEffect(() => {
-    fetch('https://restcountries.eu/rest/v2/all')
-      .then(res => res.json())
-      .then(data => {
-        setCountries(data);
-      })
-  }, [])
+import React from 'react';
+import Header from './components/Header/Header';
+import Home from './components/Home/Home';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+import NoMatch from './components/NoMatch/NoMatch';
+import CountryDetail from './components/CountryDetail/CountryDetail';
 
-  const addCountry = (country) =>{
-     const newCard = [...card, country];
-     setCard(newCard);
-  } 
+function App() {
+
   return (
     <div>
-      <h1>Country Loaded: {countries.length}</h1>
-      <Card card={card}></Card>
-        {
-          countries.map(country => <Country country={country} addCountry={addCountry} key={country.alpha2Code}> </Country>)
-        }
+      <Header />
+      <Router>
+        <Switch>
+          <Route path="/home">
+            <Home />
+          </Route>
+
+          <Route exact path="/country/:name">
+            <CountryDetail />
+          </Route>
+
+          <Route exact path="/">
+            <Home />
+          </Route>
+
+          <Route path="/*">
+            <NoMatch />
+          </Route>
+        </Switch>
+      </Router>
+
+
     </div>
   );
 }

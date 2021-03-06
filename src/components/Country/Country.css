@@ -1,17 +1,16 @@
 .card-box{
     border: 1px solid lightgray;
     padding: 15px;
-    margin: 20px;
-    display: grid;
-    width: 500px;
-    margin-left: 30%;
+    margin: 10px;
+    width: 255px;
+    height: 220px;
     border-radius: 4px;
+    float: left;
+    cursor: pointer;
 }
-
-.addBtn{
-    background-color: lightgreen;
-    width: 120px;
-    height: 30px;
-    border-radius: 5px;
-    border: 1px solid gray;
+.card-box:hover{
+    border-bottom: 2px solid cornflowerblue;
+}
+.flag{
+    height: 80px;
 }
